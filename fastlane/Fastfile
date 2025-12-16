@@ -1,0 +1,16 @@
+default_platform(:android)
+
+platform :android do
+    desc "Assemble debug and install on connected device/emulator"
+    lane :install_debug do
+        gradle(task: "clean")
+        gradle(task: "assembleDebug")
+        gradle(task: "installDebug")
+    end
+
+    desc "Assemble debug"
+    lane :ci_debug do
+        gradle(task: "clean")
+        gradle(task: "assembleDebug")
+    end
+end
