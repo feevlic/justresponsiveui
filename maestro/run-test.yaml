@@ -1,0 +1,7 @@
+appId: com.feevlic.justresponsiveui
+tags:
+  - android
+  - passing
+---
+- launchApp:
+    clearState: true
