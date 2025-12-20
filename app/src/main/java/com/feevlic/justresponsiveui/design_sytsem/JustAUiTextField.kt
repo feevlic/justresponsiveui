@@ -11,6 +11,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -21,7 +22,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.feevlic.justresponsiveui.ui.theme.JustresponsiveuiTheme
 import com.feevlic.justresponsiveui.ui.theme.Shapes
 
 @Composable
@@ -84,5 +87,23 @@ fun JustAUiTextField(
 
             }
         )
+    }
+}
+
+@Preview(showBackground = false)
+@Composable
+fun JustAUiTextFieldPreview() {
+    val state = remember { mutableStateOf("ExampleText") }
+    JustresponsiveuiTheme {
+        Surface {
+            JustAUiTextField(
+                text = state.value,
+                onValueChange = { state.value = it },
+                label = "Label",
+                hint = "Placeholder",
+                isInputSecret = false,
+                modifier = Modifier
+            )
+        }
     }
 }
