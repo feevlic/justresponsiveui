@@ -51,7 +51,7 @@ fun LoginFormSection(
         JustAUiLink(
             text = "Don't have an account?",
             onClick = {},
-            modifier = modifier.align(Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally)
         )
     }
 }

@@ -19,7 +19,8 @@ fun LoginHeaderSection(
         )
         Text(
             text = "It all starts here, so come and join ",
-            style = MaterialTheme.typography.bodyLarge
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.primary
         )
     }
 
