@@ -17,8 +17,10 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -29,6 +31,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
+import com.feevlic.justresponsiveui.design_sytsem.JustAUiButton
 import com.feevlic.justresponsiveui.login.presentation.components.LoginFormSection
 import com.feevlic.justresponsiveui.login.presentation.components.LoginHeaderSection
 import com.feevlic.justresponsiveui.util.DeviceConfiguration
@@ -64,7 +67,8 @@ fun LoginScreen() {
             DeviceConfiguration.MOBILE_PORTRAIT -> {
                 Column(
                     modifier = rootModifier,
-                    verticalArrangement = Arrangement.spacedBy(32.dp)
+                    verticalArrangement = Arrangement.spacedBy(32.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     LoginHeaderSection(modifier = Modifier.fillMaxWidth())
                     LoginFormSection(
@@ -74,7 +78,17 @@ fun LoginScreen() {
                         onPasswordTextChange = { passwordText = it },
                         modifier = Modifier.fillMaxWidth()
                     )
+                    Text(
+                        text = "or",
+                        style = MaterialTheme.typography.bodyLarge,
+                    )
 
+                    JustAUiButton(
+                        text = "Log In with Google",
+                        onClick = {},
+                        modifier = Modifier.widthIn(340.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onSurface)
+                    )
                 }
             }
 
@@ -119,7 +133,19 @@ fun LoginScreen() {
                         modifier = Modifier.widthIn(max = 540.dp)
                     )
 
+                    Text(
+                        text = "or",
+                        style = MaterialTheme.typography.bodyLarge,
+                    )
+
+                    JustAUiButton(
+                        text = "Log In With Google",
+                        onClick = {},
+                        modifier = Modifier.widthIn(340.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onSurface)
+                    )
                 }
+
             }
 
         }

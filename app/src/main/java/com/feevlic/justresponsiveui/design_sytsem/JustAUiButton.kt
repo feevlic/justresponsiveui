@@ -2,6 +2,7 @@ package com.feevlic.justresponsiveui.design_sytsem
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -14,12 +15,17 @@ import com.feevlic.justresponsiveui.ui.theme.JustresponsiveuiTheme
 import com.feevlic.justresponsiveui.ui.theme.Shapes
 
 @Composable
-fun JustAUiButton(text: String, onClick: () -> Unit, modifier: Modifier = Modifier) {
+fun JustAUiButton(
+    text: String,
+    onClick: () -> Unit,
+    colors: ButtonColors,
+    modifier: Modifier = Modifier
+) {
     Button(
         onClick = onClick,
         modifier = modifier,
         shape = Shapes.small,
-        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
+        colors = colors,
         contentPadding = PaddingValues(12.dp)
     ) {
         Text(
@@ -36,7 +42,8 @@ fun JustAUiButtonPreview() {
         Surface {
             JustAUiButton(
                 text = "Preview Button",
-                onClick = {}
+                onClick = {},
+                colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
             )
         }
     }
