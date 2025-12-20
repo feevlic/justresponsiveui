@@ -49,7 +49,7 @@ fun JustAUiTextField(
         OutlinedTextField(
             value = text,
             modifier = Modifier.fillMaxWidth(),
-            onValueChange = onValueChange,
+            onValueChange = { onValueChange(it.trimEnd()) },
             visualTransformation = if (isPasswordVisible) {
                 PasswordVisualTransformation('*')
             } else VisualTransformation.None,
