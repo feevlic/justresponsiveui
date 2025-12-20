@@ -48,12 +48,12 @@ fun JustAUiTextField(
             value = text,
             modifier = Modifier.fillMaxWidth(),
             onValueChange = onValueChange,
-            visualTransformation = if (isInputSecret) {
+            visualTransformation = if (isPasswordVisible) {
                 PasswordVisualTransformation('*')
             } else VisualTransformation.None,
             colors = OutlinedTextFieldDefaults.colors(
-                focusedTextColor = Color.Transparent,
-                unfocusedTextColor = MaterialTheme.colorScheme.surface,
+                focusedContainerColor = Color.Transparent,
+                unfocusedContainerColor = MaterialTheme.colorScheme.surface,
                 cursorColor = MaterialTheme.colorScheme.primary,
                 focusedBorderColor = MaterialTheme.colorScheme.primary,
                 unfocusedBorderColor = Color.Transparent
@@ -72,14 +72,14 @@ fun JustAUiTextField(
                         when {
                             isPasswordVisible -> {
                                 Icon(
-                                    imageVector = Icons.Default.Visibility,
+                                    imageVector = Icons.Default.VisibilityOff,
                                     contentDescription = "Hide password",
                                 )
                             }
 
                             !isPasswordVisible -> {
                                 Icon(
-                                    imageVector = Icons.Default.VisibilityOff,
+                                    imageVector = Icons.Default.Visibility,
                                     contentDescription = "Show password"
                                 )
                             }
