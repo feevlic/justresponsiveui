@@ -24,26 +24,28 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.feevlic.justresponsiveui.design_sytsem.JustAUiIconTextButton
 import com.feevlic.justresponsiveui.login.presentation.components.LoginFormSection
 import com.feevlic.justresponsiveui.login.presentation.components.LoginHeaderSection
 import com.feevlic.justresponsiveui.util.DeviceConfiguration
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(
+    viewModel: LoginViewModel = hiltViewModel()
+) {
     val focusManager = LocalFocusManager.current
-    var emailText by remember { mutableStateOf("") }
-    var passwordText by remember { mutableStateOf("") }
+    val emailText by viewModel.email.collectAsState()
+    val passwordText by viewModel.password.collectAsState()
+
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         contentWindowInsets = WindowInsets.statusBars
@@ -80,9 +82,9 @@ fun LoginScreen() {
                     LoginHeaderSection(modifier = Modifier.fillMaxWidth())
                     LoginFormSection(
                         emailText = emailText,
-                        onEmailTextChange = { emailText = it },
+                        onEmailTextChange = { viewModel.onEmailChanged(it) },
                         passwordText = passwordText,
-                        onPasswordTextChange = { passwordText = it },
+                        onPasswordTextChange = { viewModel.onPasswordChanged(it) },
                         modifier = Modifier.fillMaxWidth()
                     )
                     Text(
@@ -108,9 +110,9 @@ fun LoginScreen() {
                     LoginHeaderSection(modifier = Modifier.weight(1f))
                     LoginFormSection(
                         emailText = emailText,
-                        onEmailTextChange = { emailText = it },
+                        onEmailTextChange = { viewModel.onEmailChanged(it) },
                         passwordText = passwordText,
-                        onPasswordTextChange = { passwordText = it },
+                        onPasswordTextChange = { viewModel.onPasswordChanged(it) },
                         modifier = Modifier
                             .weight(1f)
                             .verticalScroll(rememberScrollState())
@@ -133,9 +135,9 @@ fun LoginScreen() {
                     )
                     LoginFormSection(
                         emailText = emailText,
-                        onEmailTextChange = { emailText = it },
+                        onEmailTextChange = { viewModel.onEmailChanged(it) },
                         passwordText = passwordText,
-                        onPasswordTextChange = { passwordText = it },
+                        onPasswordTextChange = { viewModel.onPasswordChanged(it) },
                         modifier = Modifier.widthIn(max = 540.dp)
                     )
 
