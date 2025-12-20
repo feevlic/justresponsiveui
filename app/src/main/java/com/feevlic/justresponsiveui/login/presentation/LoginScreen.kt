@@ -1,6 +1,7 @@
 package com.feevlic.justresponsiveui.login.presentation
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -30,6 +31,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
 import com.feevlic.justresponsiveui.design_sytsem.JustAUiIconTextButton
 import com.feevlic.justresponsiveui.login.presentation.components.LoginFormSection
@@ -38,6 +41,7 @@ import com.feevlic.justresponsiveui.util.DeviceConfiguration
 
 @Composable
 fun LoginScreen() {
+    val focusManager = LocalFocusManager.current
     var emailText by remember { mutableStateOf("") }
     var passwordText by remember { mutableStateOf("") }
     Scaffold(
@@ -60,6 +64,9 @@ fun LoginScreen() {
                 vertical = 24.dp
             )
             .consumeWindowInsets(WindowInsets.navigationBars)
+            .pointerInput(Unit) {
+                detectTapGestures(onTap = { focusManager.clearFocus() })
+            }
 
         val windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass
         val deviceConfiguration = DeviceConfiguration.fromWindowSizeClass(windowSizeClass)

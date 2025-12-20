@@ -26,7 +26,7 @@ fun LoginFormSection(
         JustAUiTextField(
             text = emailText,
             onValueChange = onEmailTextChange,
-            label = "Email",
+            label = "E-Mail",
             hint = "max.musterman@example.de",
             isInputSecret = false,
             modifier = Modifier.fillMaxWidth()
