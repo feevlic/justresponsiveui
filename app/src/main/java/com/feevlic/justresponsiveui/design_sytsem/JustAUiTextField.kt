@@ -2,7 +2,9 @@ package com.feevlic.justresponsiveui.design_sytsem
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
@@ -20,6 +22,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
@@ -45,13 +48,14 @@ fun JustAUiTextField(
         Spacer(modifier = modifier.height(6.dp))
         OutlinedTextField(
             value = text,
-            onValueChange = onValueChange,
-            visualTransformation = if (isInputSecret) {
+            modifier = Modifier.fillMaxWidth(),
+            onValueChange = { onValueChange(it.trimEnd()) },
+            visualTransformation = if (isPasswordVisible) {
                 PasswordVisualTransformation('*')
             } else VisualTransformation.None,
             colors = OutlinedTextFieldDefaults.colors(
-                focusedTextColor = Color.Transparent,
-                unfocusedTextColor = MaterialTheme.colorScheme.surface,
+                focusedContainerColor = Color.Transparent,
+                unfocusedContainerColor = MaterialTheme.colorScheme.surface,
                 cursorColor = MaterialTheme.colorScheme.primary,
                 focusedBorderColor = MaterialTheme.colorScheme.primary,
                 unfocusedBorderColor = Color.Transparent
@@ -64,20 +68,23 @@ fun JustAUiTextField(
             },
             textStyle = MaterialTheme.typography.bodyLarge,
             shape = Shapes.small,
+            singleLine = true,
+            maxLines = 1,
+            keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
             trailingIcon = {
                 if (isInputSecret) {
                     IconButton(onClick = { isPasswordVisible = !isPasswordVisible }) {
                         when {
                             isPasswordVisible -> {
                                 Icon(
-                                    imageVector = Icons.Default.Visibility,
+                                    imageVector = Icons.Default.VisibilityOff,
                                     contentDescription = "Hide password",
                                 )
                             }
 
                             !isPasswordVisible -> {
                                 Icon(
-                                    imageVector = Icons.Default.VisibilityOff,
+                                    imageVector = Icons.Default.Visibility,
                                     contentDescription = "Show password"
                                 )
                             }
