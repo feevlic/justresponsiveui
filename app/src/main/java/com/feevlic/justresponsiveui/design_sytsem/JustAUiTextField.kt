@@ -2,6 +2,7 @@ package com.feevlic.justresponsiveui.design_sytsem
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
@@ -45,6 +46,7 @@ fun JustAUiTextField(
         Spacer(modifier = modifier.height(6.dp))
         OutlinedTextField(
             value = text,
+            modifier = Modifier.fillMaxWidth(),
             onValueChange = onValueChange,
             visualTransformation = if (isInputSecret) {
                 PasswordVisualTransformation('*')
