@@ -31,7 +31,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import com.feevlic.justresponsiveui.design_sytsem.JustAUiButton
+import com.feevlic.justresponsiveui.design_sytsem.JustAUiIconTextButton
 import com.feevlic.justresponsiveui.login.presentation.components.LoginFormSection
 import com.feevlic.justresponsiveui.login.presentation.components.LoginHeaderSection
 import com.feevlic.justresponsiveui.util.DeviceConfiguration
@@ -82,12 +82,11 @@ fun LoginScreen() {
                         text = "or",
                         style = MaterialTheme.typography.bodyLarge,
                     )
-
-                    JustAUiButton(
-                        text = "Log In with Google",
-                        onClick = {},
-                        modifier = Modifier.widthIn(340.dp),
-                        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onSurface)
+                    JustAUiIconTextButton(
+                        text = "Sign in with Google",
+                        onClick = { },
+                        colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.onSurface),
+                        modifier = Modifier.fillMaxWidth()
                     )
                 }
             }
@@ -137,12 +136,12 @@ fun LoginScreen() {
                         text = "or",
                         style = MaterialTheme.typography.bodyLarge,
                     )
-
-                    JustAUiButton(
-                        text = "Log In With Google",
-                        onClick = {},
-                        modifier = Modifier.widthIn(340.dp),
-                        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onSurface)
+                    JustAUiIconTextButton(
+                        text = "Sign in with Google",
+                        onClick = { },
+                        colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.onSurface),
+                        modifier = Modifier
+                            .widthIn(480.dp)
                     )
                 }
 
