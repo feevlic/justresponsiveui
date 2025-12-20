@@ -40,7 +40,7 @@ fun JustAUiTextField(
     modifier: Modifier = Modifier
 ) {
     var isPasswordVisible by remember {
-        mutableStateOf(true)
+        mutableStateOf(false)
     }
 
     Column(modifier = modifier) {
