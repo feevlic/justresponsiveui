@@ -13,9 +13,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
-import com.feevlic.justresponsiveui.R
 import com.feevlic.justresponsiveui.ui.theme.Shapes
 
 @Composable
@@ -24,6 +23,7 @@ fun JustAUiIconTextButton(
     onClick: () -> Unit,
     colors: ButtonColors,
     modifier: Modifier = Modifier,
+    painter: Painter
 ) {
     Button(
         onClick = onClick,
@@ -36,7 +36,7 @@ fun JustAUiIconTextButton(
             horizontalArrangement = Arrangement.Center
         ) {
             Image(
-                painter = painterResource(id = R.drawable.google_logo),
+                painter = painter,
                 contentDescription = null,
                 modifier = Modifier
                     .height(18.dp)
