@@ -1,4 +1,4 @@
-package com.feevlic.justresponsiveui.system_design
+package com.feevlic.justresponsiveui.design_sytsem
 
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
