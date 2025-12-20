@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,7 +26,7 @@ fun LoginFormSection(
         JustAUiTextField(
             text = emailText,
             onValueChange = onEmailTextChange,
-            label = "Email",
+            label = "E-Mail",
             hint = "max.musterman@example.de",
             isInputSecret = false,
             modifier = Modifier.fillMaxWidth()
@@ -42,7 +44,8 @@ fun LoginFormSection(
         JustAUiButton(
             text = "Log In",
             onClick = {},
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
         )
         Spacer(modifier = Modifier.height(16.dp))
         JustAUiLink(

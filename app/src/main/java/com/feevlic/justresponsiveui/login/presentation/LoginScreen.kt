@@ -1,6 +1,7 @@
 package com.feevlic.justresponsiveui.login.presentation
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,8 +18,10 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -28,13 +31,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
+import com.feevlic.justresponsiveui.design_sytsem.JustAUiIconTextButton
 import com.feevlic.justresponsiveui.login.presentation.components.LoginFormSection
 import com.feevlic.justresponsiveui.login.presentation.components.LoginHeaderSection
 import com.feevlic.justresponsiveui.util.DeviceConfiguration
 
 @Composable
 fun LoginScreen() {
+    val focusManager = LocalFocusManager.current
     var emailText by remember { mutableStateOf("") }
     var passwordText by remember { mutableStateOf("") }
     Scaffold(
@@ -57,6 +64,9 @@ fun LoginScreen() {
                 vertical = 24.dp
             )
             .consumeWindowInsets(WindowInsets.navigationBars)
+            .pointerInput(Unit) {
+                detectTapGestures(onTap = { focusManager.clearFocus() })
+            }
 
         val windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass
         val deviceConfiguration = DeviceConfiguration.fromWindowSizeClass(windowSizeClass)
@@ -64,7 +74,8 @@ fun LoginScreen() {
             DeviceConfiguration.MOBILE_PORTRAIT -> {
                 Column(
                     modifier = rootModifier,
-                    verticalArrangement = Arrangement.spacedBy(32.dp)
+                    verticalArrangement = Arrangement.spacedBy(32.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     LoginHeaderSection(modifier = Modifier.fillMaxWidth())
                     LoginFormSection(
@@ -74,7 +85,16 @@ fun LoginScreen() {
                         onPasswordTextChange = { passwordText = it },
                         modifier = Modifier.fillMaxWidth()
                     )
-
+                    Text(
+                        text = "or",
+                        style = MaterialTheme.typography.bodyLarge,
+                    )
+                    JustAUiIconTextButton(
+                        text = "Sign in with Google",
+                        onClick = { },
+                        colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.onSurface),
+                        modifier = Modifier.fillMaxWidth()
+                    )
                 }
             }
 
@@ -119,7 +139,19 @@ fun LoginScreen() {
                         modifier = Modifier.widthIn(max = 540.dp)
                     )
 
+                    Text(
+                        text = "or",
+                        style = MaterialTheme.typography.bodyLarge,
+                    )
+                    JustAUiIconTextButton(
+                        text = "Sign in with Google",
+                        onClick = { },
+                        colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.onSurface),
+                        modifier = Modifier
+                            .widthIn(480.dp)
+                    )
                 }
+
             }
 
         }
