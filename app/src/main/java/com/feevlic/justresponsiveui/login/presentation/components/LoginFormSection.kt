@@ -20,7 +20,10 @@ fun LoginFormSection(
     onEmailTextChange: (String) -> Unit,
     passwordText: String,
     onPasswordTextChange: (String) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    emailError: Boolean = false,
+    emailErrorMessage: String? = null,
+    onLoginClick: () -> Unit = {}
 ) {
     Column(modifier = modifier) {
         JustAUiTextField(
@@ -29,7 +32,9 @@ fun LoginFormSection(
             label = "E-Mail",
             hint = "max.musterman@example.de",
             isInputSecret = false,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            isError = emailError,
+            errorMessage = emailErrorMessage
         )
         Spacer(modifier = Modifier.height(16.dp))
         JustAUiTextField(
@@ -43,7 +48,7 @@ fun LoginFormSection(
         Spacer(modifier = Modifier.height(24.dp))
         JustAUiButton(
             text = "Log In",
-            onClick = {},
+            onClick = onLoginClick,
             modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
         )

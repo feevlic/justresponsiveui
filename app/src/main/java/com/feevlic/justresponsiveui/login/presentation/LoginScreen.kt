@@ -43,6 +43,7 @@ fun LoginScreen(
     val focusManager = LocalFocusManager.current
     val emailText by viewModel.email.collectAsState()
     val passwordText by viewModel.password.collectAsState()
+    val emailError by viewModel.emailError.collectAsState()
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -83,7 +84,10 @@ fun LoginScreen(
                         onEmailTextChange = { viewModel.onEmailChanged(it) },
                         passwordText = passwordText,
                         onPasswordTextChange = { viewModel.onPasswordChanged(it) },
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier.fillMaxWidth(),
+                        emailError = emailError,
+                        emailErrorMessage = "Please enter a valid email address.",
+                        onLoginClick = { viewModel.onLoginClicked() }
                     )
                     LoginThirdPartySection(
                         modifier = Modifier.fillMaxWidth(),
@@ -107,7 +111,10 @@ fun LoginScreen(
                         onPasswordTextChange = { viewModel.onPasswordChanged(it) },
                         modifier = Modifier
                             .weight(1f)
-                            .verticalScroll(rememberScrollState())
+                            .verticalScroll(rememberScrollState()),
+                        emailError = emailError,
+                        emailErrorMessage = "Please enter a valid email address.",
+                        onLoginClick = { viewModel.onLoginClicked() }
                     )
                 }
             }
@@ -130,7 +137,10 @@ fun LoginScreen(
                         onEmailTextChange = { viewModel.onEmailChanged(it) },
                         passwordText = passwordText,
                         onPasswordTextChange = { viewModel.onPasswordChanged(it) },
-                        modifier = Modifier.widthIn(max = 540.dp)
+                        modifier = Modifier.widthIn(max = 540.dp),
+                        emailError = emailError,
+                        emailErrorMessage = "Please enter a valid email address.",
+                        onLoginClick = { viewModel.onLoginClicked() }
                     )
                     LoginThirdPartySection(
                         modifier = Modifier.widthIn(max = 540.dp),
