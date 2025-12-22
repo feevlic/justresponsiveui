@@ -37,7 +37,9 @@ fun JustAUiTextField(
     label: String,
     hint: String,
     isInputSecret: Boolean,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    isError: Boolean = false,
+    errorMessage: String? = null
 ) {
     var isPasswordVisible by remember {
         mutableStateOf(false)
@@ -61,8 +63,8 @@ fun JustAUiTextField(
                 focusedContainerColor = Color.Transparent,
                 unfocusedContainerColor = MaterialTheme.colorScheme.surface,
                 cursorColor = MaterialTheme.colorScheme.primary,
-                focusedBorderColor = MaterialTheme.colorScheme.primary,
-                unfocusedBorderColor = Color.Transparent
+                focusedBorderColor = if (isError) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary,
+                unfocusedBorderColor = if (isError) MaterialTheme.colorScheme.error else Color.Transparent
             ),
             placeholder = {
                 Text(
@@ -95,8 +97,18 @@ fun JustAUiTextField(
                         }
                     }
                 }
-            }
+            },
+            isError = isError
         )
+
+        if (isError && !errorMessage.isNullOrEmpty()) {
+            Spacer(modifier = Modifier.height(6.dp))
+            Text(
+                text = errorMessage,
+                color = MaterialTheme.colorScheme.error,
+                style = MaterialTheme.typography.bodySmall
+            )
+        }
     }
 }
 
