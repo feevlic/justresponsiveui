@@ -86,7 +86,7 @@ fun LoginScreen(
                         onPasswordTextChange = { viewModel.onPasswordChanged(it) },
                         modifier = Modifier.fillMaxWidth(),
                         emailError = emailError,
-                        emailErrorMessage = "No valid email detected.",
+                        emailErrorMessage = "Please enter a valid email address.",
                         onLoginClick = { viewModel.onLoginClicked() }
                     )
                     LoginThirdPartySection(
@@ -113,7 +113,7 @@ fun LoginScreen(
                             .weight(1f)
                             .verticalScroll(rememberScrollState()),
                         emailError = emailError,
-                        emailErrorMessage = "No valid email detected.",
+                        emailErrorMessage = "Please enter a valid email address.",
                         onLoginClick = { viewModel.onLoginClicked() }
                     )
                 }
@@ -139,7 +139,7 @@ fun LoginScreen(
                         onPasswordTextChange = { viewModel.onPasswordChanged(it) },
                         modifier = Modifier.widthIn(max = 540.dp),
                         emailError = emailError,
-                        emailErrorMessage = "No valid email detected.",
+                        emailErrorMessage = "Please enter a valid email address.",
                         onLoginClick = { viewModel.onLoginClicked() }
                     )
                     LoginThirdPartySection(
