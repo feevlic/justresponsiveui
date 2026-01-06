@@ -3,6 +3,7 @@ package com.feevlic.justresponsiveui.login.di
 import com.feevlic.justresponsiveui.login.domain.usecase.SaveEmailUseCase
 import com.feevlic.justresponsiveui.login.domain.usecase.SavePasswordUseCase
 import com.feevlic.justresponsiveui.login.domain.usecase.ValidateEmailUseCase
+import com.feevlic.justresponsiveui.login.domain.usecase.ValidatePasswordUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,5 +24,9 @@ object LoginModule {
 
     @Provides
     @Singleton
-    fun provideValidateEmailUsecase(): ValidateEmailUseCase = ValidateEmailUseCase()
+    fun provideValidateEmailUseCase(): ValidateEmailUseCase = ValidateEmailUseCase()
+
+    @Provides
+    @Singleton
+    fun provideValidatePasswordUseCase(): ValidatePasswordUseCase = ValidatePasswordUseCase()
 }

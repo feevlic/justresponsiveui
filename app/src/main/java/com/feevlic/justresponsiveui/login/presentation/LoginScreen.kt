@@ -44,6 +44,11 @@ fun LoginScreen(
     val emailText by viewModel.email.collectAsState()
     val passwordText by viewModel.password.collectAsState()
     val emailError by viewModel.emailError.collectAsState()
+    val passwordError by viewModel.passwordError.collectAsState()
+
+    val passwordErrorMessage =
+        "Password must be at least 8 characters, include one uppercase letter and one digit."
+    val emailErrorMessage = "Please enter a valid email address"
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -86,7 +91,9 @@ fun LoginScreen(
                         onPasswordTextChange = { viewModel.onPasswordChanged(it) },
                         modifier = Modifier.fillMaxWidth(),
                         emailError = emailError,
-                        emailErrorMessage = "Please enter a valid email address.",
+                        emailErrorMessage = emailErrorMessage,
+                        passwordError = passwordError,
+                        passwordErrorMessage = passwordErrorMessage,
                         onLoginClick = { viewModel.onLoginClicked() }
                     )
                     LoginThirdPartySection(
@@ -113,7 +120,9 @@ fun LoginScreen(
                             .weight(1f)
                             .verticalScroll(rememberScrollState()),
                         emailError = emailError,
-                        emailErrorMessage = "Please enter a valid email address.",
+                        emailErrorMessage = emailErrorMessage,
+                        passwordError = passwordError,
+                        passwordErrorMessage = passwordErrorMessage,
                         onLoginClick = { viewModel.onLoginClicked() }
                     )
                 }
@@ -139,7 +148,9 @@ fun LoginScreen(
                         onPasswordTextChange = { viewModel.onPasswordChanged(it) },
                         modifier = Modifier.widthIn(max = 540.dp),
                         emailError = emailError,
-                        emailErrorMessage = "Please enter a valid email address.",
+                        emailErrorMessage = emailErrorMessage,
+                        passwordError = passwordError,
+                        passwordErrorMessage = passwordErrorMessage,
                         onLoginClick = { viewModel.onLoginClicked() }
                     )
                     LoginThirdPartySection(
