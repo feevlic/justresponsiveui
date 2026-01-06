@@ -1,5 +1,14 @@
 JustResponsiveUI
 
+<p align="center">
+  <a href="screenshots/LoginFlow_Video.mp4">
+    <img src="screenshots/LoginScreen_Portrait_Mobile.png" alt="Login portrait" width="280" style="margin-right:12px;"/>
+  </a>
+  <a href="screenshots/LoginFlow_Video.mp4">
+    <img src="screenshots/RegisterScreen_Landscape_Mobile.png" alt="Register landscape" width="280" style="margin-right:12px;"/>
+  </a>
+  <a href="screenshots/LoginFlow_Video.mp4">View demo video</a>
+</p>
 Minimal Android sample demonstrating responsive Jetpack Compose UI and cleanly separated
 authentication flows (Login / Register), with shared domain validation and dependency injection.
 
@@ -45,5 +54,3 @@ Build and run
 ```
 ./gradlew installDebug
 ```
-
-- Run from Android Studio for interactive debugging and Compose previews.
