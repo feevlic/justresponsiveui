@@ -23,6 +23,8 @@ fun LoginFormSection(
     modifier: Modifier = Modifier,
     emailError: Boolean = false,
     emailErrorMessage: String? = null,
+    passwordError: Boolean = false,
+    passwordErrorMessage: String? = null,
     onLoginClick: () -> Unit = {}
 ) {
     Column(modifier = modifier) {
@@ -43,7 +45,9 @@ fun LoginFormSection(
             label = "Password",
             hint = "Your password",
             isInputSecret = true,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            isError = passwordError,
+            errorMessage = passwordErrorMessage
         )
         Spacer(modifier = Modifier.height(24.dp))
         JustAUiButton(
