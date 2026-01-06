@@ -25,7 +25,7 @@ fun RegisterFormSection(
     emailErrorMessage: String? = null,
     passwordError: Boolean = false,
     passwordErrorMessage: String? = null,
-    onSignupClick: () -> Unit = {}
+    onSignupClick: () -> Unit = {},
 ) {
     Column(modifier = modifier) {
         JustAUiTextField(
