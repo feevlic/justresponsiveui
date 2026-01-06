@@ -51,8 +51,7 @@ fun LoginScreen(
     val emailErrorMessage = "Please enter a valid email address"
 
     Scaffold(
-        modifier = Modifier.fillMaxSize(),
-        contentWindowInsets = WindowInsets.statusBars
+        modifier = Modifier.fillMaxSize(), contentWindowInsets = WindowInsets.statusBars
     ) { innerPadding ->
 
         val rootModifier = Modifier
@@ -60,14 +59,12 @@ fun LoginScreen(
             .padding(innerPadding)
             .clip(
                 RoundedCornerShape(
-                    topStart = 15.dp,
-                    topEnd = 15.dp
+                    topStart = 15.dp, topEnd = 15.dp
                 )
             )
             .background(MaterialTheme.colorScheme.surfaceContainerLowest)
             .padding(
-                horizontal = 16.dp,
-                vertical = 24.dp
+                horizontal = 16.dp, vertical = 24.dp
             )
             .consumeWindowInsets(WindowInsets.navigationBars)
             .pointerInput(Unit) {
@@ -94,11 +91,9 @@ fun LoginScreen(
                         emailErrorMessage = emailErrorMessage,
                         passwordError = passwordError,
                         passwordErrorMessage = passwordErrorMessage,
-                        onLoginClick = { viewModel.onLoginClicked() }
-                    )
+                        onLoginClick = { viewModel.onLoginClicked() })
                     LoginThirdPartySection(
-                        modifier = Modifier.fillMaxWidth(),
-                        buttonModifier = Modifier.fillMaxWidth()
+                        modifier = Modifier.fillMaxWidth(), buttonModifier = Modifier.fillMaxWidth()
                     )
                 }
             }
@@ -111,25 +106,35 @@ fun LoginScreen(
                     horizontalArrangement = Arrangement.spacedBy(32.dp)
                 ) {
                     LoginHeaderSection(modifier = Modifier.weight(1f))
-                    LoginFormSection(
-                        emailText = emailText,
-                        onEmailTextChange = { viewModel.onEmailChanged(it) },
-                        passwordText = passwordText,
-                        onPasswordTextChange = { viewModel.onPasswordChanged(it) },
+
+                    Column(
                         modifier = Modifier
                             .weight(1f)
                             .verticalScroll(rememberScrollState()),
-                        emailError = emailError,
-                        emailErrorMessage = emailErrorMessage,
-                        passwordError = passwordError,
-                        passwordErrorMessage = passwordErrorMessage,
-                        onLoginClick = { viewModel.onLoginClicked() }
-                    )
+                        verticalArrangement = Arrangement.spacedBy(16.dp)
+                    ) {
+                        LoginFormSection(
+                            emailText = emailText,
+                            onEmailTextChange = { viewModel.onEmailChanged(it) },
+                            passwordText = passwordText,
+                            onPasswordTextChange = { viewModel.onPasswordChanged(it) },
+                            modifier = Modifier.fillMaxWidth(),
+                            emailError = emailError,
+                            emailErrorMessage = emailErrorMessage,
+                            passwordError = passwordError,
+                            passwordErrorMessage = passwordErrorMessage,
+                            onLoginClick = { viewModel.onLoginClicked() }
+                        )
+
+                        LoginThirdPartySection(
+                            modifier = Modifier.fillMaxWidth(),
+                            buttonModifier = Modifier.fillMaxWidth()
+                        )
+                    }
                 }
             }
 
-            DeviceConfiguration.TABLET_PORTRAIT,
-            DeviceConfiguration.TABLET_LANDSCAPE -> {
+            DeviceConfiguration.TABLET_PORTRAIT, DeviceConfiguration.TABLET_LANDSCAPE -> {
                 Column(
                     modifier = rootModifier
                         .padding(top = 48.dp)
@@ -151,8 +156,7 @@ fun LoginScreen(
                         emailErrorMessage = emailErrorMessage,
                         passwordError = passwordError,
                         passwordErrorMessage = passwordErrorMessage,
-                        onLoginClick = { viewModel.onLoginClicked() }
-                    )
+                        onLoginClick = { viewModel.onLoginClicked() })
                     LoginThirdPartySection(
                         modifier = Modifier.widthIn(max = 540.dp),
                         buttonModifier = Modifier.widthIn(480.dp)
