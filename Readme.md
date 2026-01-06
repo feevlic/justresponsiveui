@@ -1,14 +1,6 @@
 JustResponsiveUI
 
-<p align="center">
-<table cellspacing="6" cellpadding="0" align="center"> 
-<tr> <td><a href="screenshots/LoginFlow_Video.mp4">
-<img src="screenshots/LoginScreen_Portrait_Mobile.png" alt="Login portrait" width="320" height="320" style="object-fit:cover;"/></a></td>
-<td><a href="screenshots/LoginFlow_Video.mp4"><img src="screenshots/RegisterScreen_Landscape_Mobile.png" alt="Register landscape" width="320" height="320" style="object-fit:cover;"/></a></td> </tr>
-<tr> <td><a href="screenshots/LoginFlow_Video.mp4">
-<img src="screenshots/LoginScreen_Landscape_Tablet.png" alt="Login landscape tablet" width="320" height="320" style="object-fit:cover;"/></a></td> 
-<td><a href="screenshots/LoginFlow_Video.mp4"><img src="screenshots/RegisterScreen_Portrait_Tablet.png" alt="Register portrait tablet" width="320" height="320" style="object-fit:cover;"/></a></td> </tr> 
-</table></p>
+<p align="center"> <table cellspacing="12" cellpadding="0" align="center"> <tr> <td> <a href="screenshots/LoginFlow_Video.mp4"> <div style="width:320px;height:320px;display:flex;align-items:center;justify-content:center;background:#ffffff;"> <img src="screenshots/LoginScreen_Portrait_Mobile.png" alt="Login portrait" style="max-width:100%;max-height:100%;"/> </div> </a> </td> <td> <a href="screenshots/LoginFlow_Video.mp4"> <div style="width:320px;height:320px;display:flex;align-items:center;justify-content:center;background:#ffffff;"> <img src="screenshots/RegisterScreen_Landscape_Mobile.png" alt="Register landscape" style="max-width:100%;max-height:100%;"/> </div> </a> </td> </tr> <tr> <td> <a href="screenshots/LoginFlow_Video.mp4"> <div style="width:320px;height:320px;display:flex;align-items:center;justify-content:center;background:#ffffff;"> <img src="screenshots/LoginScreen_Landscape_Tablet.png" alt="Login landscape tablet" style="max-width:100%;max-height:100%;"/> </div> </a> </td> <td> <a href="screenshots/LoginFlow_Video.mp4"> <div style="width:320px;height:320px;display:flex;align-items:center;justify-content:center;background:#ffffff;"> <img src="screenshots/RegisterScreen_Portrait_Tablet.png" alt="Register portrait tablet" style="max-width:100%;max-height:100%;"/> </div> </a> </td> </tr> </table> </p>
 
 
 Minimal Android sample demonstrating responsive Jetpack Compose UI and cleanly separated
