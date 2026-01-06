@@ -29,15 +29,6 @@ fun RegisterFormSection(
 ) {
     Column(modifier = modifier) {
         JustAUiTextField(
-            text = nameText,
-            onValueChange = onNameTextChange,
-            label = "Your Name",
-            hint = "Max Mustermann",
-            isInputSecret = false,
-            modifier = Modifier.fillMaxWidth()
-        )
-        Spacer(modifier = Modifier.height(12.dp))
-        JustAUiTextField(
             text = emailText,
             onValueChange = onEmailTextChange,
             label = "E-Mail",
@@ -46,6 +37,15 @@ fun RegisterFormSection(
             modifier = Modifier.fillMaxWidth(),
             isError = emailError,
             errorMessage = emailErrorMessage
+        )
+        Spacer(modifier = Modifier.height(12.dp))
+        JustAUiTextField(
+            text = nameText,
+            onValueChange = onNameTextChange,
+            label = "Your Name",
+            hint = "Max Mustermann",
+            isInputSecret = false,
+            modifier = Modifier.fillMaxWidth()
         )
         Spacer(modifier = Modifier.height(16.dp))
         JustAUiTextField(
