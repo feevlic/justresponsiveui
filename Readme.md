@@ -8,6 +8,68 @@ authentication flows (Login / Register), with shared domain validation and depen
 - Small, focused codebase that illustrates adaptive Compose layouts, MVVM separation, and
   single-source validation logic for authentication.
 
+## Screenshots
+
+<details>
+<summary>Portrait — Mobile phone</summary>
+
+<p align="center">
+<img src="screenshots/phone/portrait/Phone_Portrait_Login.png" alt="Phone Portrait Login" width="300" />
+<img src="screenshots/phone/portrait/Phone_Portrait_Login_Error.png" alt="Phone Portrait Login Error" width="300" />
+</p>
+
+<p align="center">
+<img src="screenshots/phone/portrait/Phone_Portrait_Register.png" alt="Phone Portrait Register" width="300" />
+<img src="screenshots/phone/portrait/Phone_Portrait_Register_Error.png" alt="Phone Portrait Register Error" width="300" />
+</p>
+
+</details>
+
+<details>
+<summary>Portrait — Tablet</summary>
+
+<p align="center">
+<img src="screenshots/tablet/portrait/Tablet_Portrait_Login.png" alt="Tablet Portrait Login" width="400" />
+<img src="screenshots/tablet/portrait/Tablet_Portrait_Login_Error.png" alt="Tablet Portrait Login Error" width="400" />
+</p>
+
+<p align="center">
+<img src="screenshots/tablet/portrait/Tablet_Portrait_Register.png" alt="Tablet Portrait Register" width="400" />
+<img src="screenshots/tablet/portrait/Tablet_Portrait_Register_Error.png" alt="Tablet Portrait Register Error" width="400" />
+</p>
+
+</details>
+
+<details>
+<summary>Landscape — Mobile phone</summary>
+
+<p align="center">
+<img src="screenshots/phone/landscape/Phone_Landscape_Login.png" alt="Phone Landscape Login" width="300" />
+<img src="screenshots/phone/landscape/Phone_Landscape_Login_Error.png" alt="Phone Landscape Login Error" width="300" />
+</p>
+
+<p align="center">
+<img src="screenshots/phone/landscape/Phone_Landscape_Register.png" alt="Phone Landscape Register" width="300" />
+<img src="screenshots/phone/landscape/Phone_Landscape_Register_Error.png" alt="Phone Landscape Register Error" width="300" />
+</p>
+
+</details>
+
+<details>
+<summary>Landscape — Tablet</summary>
+
+<p align="center">
+<img src="screenshots/tablet/landscape/Tablet_Landscape_Login.png" alt="Tablet Landscape Login" width="400" />
+<img src="screenshots/tablet/landscape/Tablet_Landscape_Login_Error.png" alt="Tablet Landscape Login Error" width="400" />
+</p>
+
+<p align="center">
+<img src="screenshots/tablet/landscape/Tablet_Landscape_Register.png" alt="Tablet Landscape Register" width="400" />
+<img src="screenshots/tablet/landscape/Tablet_Landscape_Register_Error.png" alt="Tablet Landscape Register Error" width="400" />
+</p>
+
+</details>
+
 ## Architecture
 
 - Pattern: MVVM — `ViewModel` holds UI state and exposes `StateFlow`; composables render state and
