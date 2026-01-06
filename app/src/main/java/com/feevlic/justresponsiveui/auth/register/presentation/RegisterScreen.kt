@@ -38,11 +38,13 @@ import com.feevlic.justresponsiveui.auth.register.presentation.components.Regist
 import com.feevlic.justresponsiveui.auth.shared.presentation.SharedAuthViewModel
 import com.feevlic.justresponsiveui.util.DeviceConfiguration
 
+
 @Composable
 fun RegisterScreen(
     modifier: Modifier = Modifier,
     sharedAuthViewModel: SharedAuthViewModel,
     viewModel: RegisterViewModel = hiltViewModel(),
+    onLogin: (() -> Unit)? = null
 ) {
     val focusManager = LocalFocusManager.current
     val prefilledEmail by sharedAuthViewModel.email.collectAsState()
@@ -105,7 +107,9 @@ fun RegisterScreen(
                         emailErrorMessage = emailErrorMessage,
                         passwordError = passwordError,
                         passwordErrorMessage = passwordErrorMessage,
-                        onSignupClick = { viewModel.onSignupClicked() })
+                        onSignupClick = { viewModel.onSignupClicked() },
+                        onNavigateToLogin = { onLogin?.invoke() }
+                    )
                     LoginThirdPartySection(
                         modifier = Modifier.fillMaxWidth(), buttonModifier = Modifier.fillMaxWidth()
                     )
@@ -138,7 +142,9 @@ fun RegisterScreen(
                             emailErrorMessage = emailErrorMessage,
                             passwordError = passwordError,
                             passwordErrorMessage = passwordErrorMessage,
-                            onSignupClick = { viewModel.onSignupClicked() })
+                            onSignupClick = { viewModel.onSignupClicked() },
+                            onNavigateToLogin = { onLogin?.invoke() }
+                        )
 
                         LoginThirdPartySection(
                             modifier = Modifier.fillMaxWidth(),
@@ -172,7 +178,9 @@ fun RegisterScreen(
                         emailErrorMessage = emailErrorMessage,
                         passwordError = passwordError,
                         passwordErrorMessage = passwordErrorMessage,
-                        onSignupClick = { viewModel.onSignupClicked() })
+                        onSignupClick = { viewModel.onSignupClicked() },
+                        onNavigateToLogin = { onLogin?.invoke() }
+                    )
                     LoginThirdPartySection(
                         modifier = Modifier.widthIn(max = 540.dp),
                         buttonModifier = Modifier.widthIn(480.dp)
