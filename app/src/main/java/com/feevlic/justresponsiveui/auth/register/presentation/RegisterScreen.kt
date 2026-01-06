@@ -46,6 +46,7 @@ fun RegisterScreen(
 ) {
     val focusManager = LocalFocusManager.current
     val prefilledEmail by sharedAuthViewModel.email.collectAsState()
+    val nameText by viewModel.name.collectAsState()
     val emailText by viewModel.email.collectAsState()
     val passwordText by viewModel.password.collectAsState()
     val emailError by viewModel.emailError.collectAsState()
@@ -93,8 +94,8 @@ fun RegisterScreen(
                 ) {
                     RegisterHeaderSection(modifier = Modifier.fillMaxWidth())
                     RegisterFormSection(
-                        nameText = "",
-                        onNameTextChange = {},
+                        nameText = nameText,
+                        onNameTextChange = { viewModel.onNameChanged(it) },
                         emailText = emailText,
                         onEmailTextChange = { viewModel.onEmailChanged(it) },
                         passwordText = passwordText,
@@ -126,8 +127,8 @@ fun RegisterScreen(
                         verticalArrangement = Arrangement.spacedBy(16.dp)
                     ) {
                         RegisterFormSection(
-                            nameText = "",
-                            onNameTextChange = {},
+                            nameText = nameText,
+                            onNameTextChange = { viewModel.onNameChanged(it) },
                             emailText = emailText,
                             onEmailTextChange = { viewModel.onEmailChanged(it) },
                             passwordText = passwordText,
@@ -160,8 +161,8 @@ fun RegisterScreen(
                         alignment = Alignment.CenterHorizontally
                     )
                     RegisterFormSection(
-                        nameText = "",
-                        onNameTextChange = {},
+                        nameText = nameText,
+                        onNameTextChange = { viewModel.onNameChanged(it) },
                         emailText = emailText,
                         onEmailTextChange = { viewModel.onEmailChanged(it) },
                         passwordText = passwordText,

@@ -2,6 +2,7 @@ package com.feevlic.justresponsiveui.auth.register.presentation
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import com.feevlic.justresponsiveui.auth.register.domain.SaveNameUseCase
 import com.feevlic.justresponsiveui.auth.shared.domain.usecase.ValidateEmailUseCase
 import com.feevlic.justresponsiveui.auth.shared.domain.usecase.ValidatePasswordUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -11,15 +12,21 @@ import javax.inject.Inject
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
+    private val saveNameUseCase: SaveNameUseCase,
     private val validateEmailUseCase: ValidateEmailUseCase,
     private val validatePasswordUseCase: ValidatePasswordUseCase
 ) : ViewModel() {
+
     companion object {
+        private const val KEY_NAME = "register_name"
         private const val KEY_EMAIL = "register_email"
         private const val KEY_PASSWORD = "register_password"
         private const val KEY_EMAIL_ERROR = "register_email_error"
         private const val KEY_PASSWORD_ERROR = "register_password_error"
     }
+
+    private val _name: StateFlow<String> = savedStateHandle.getStateFlow(KEY_NAME, "")
+    val name: StateFlow<String> = _name
 
     private val _email: StateFlow<String> = savedStateHandle.getStateFlow(KEY_EMAIL, "")
     val email: StateFlow<String> = _email
@@ -37,6 +44,11 @@ class RegisterViewModel @Inject constructor(
 
     fun setEmail(value: String) {
         savedStateHandle[KEY_EMAIL] = value.trim()
+    }
+
+    fun onNameChanged(newValue: String) {
+        val cleaned = saveNameUseCase.saveName(newValue)
+        savedStateHandle[KEY_NAME] = cleaned
     }
 
     fun onEmailChanged(newValue: String) {
