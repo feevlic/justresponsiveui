@@ -25,10 +25,19 @@ class LoginViewModel @Inject constructor(
         private const val KEY_PASSWORD_ERROR = "login_password_error"
     }
 
-    val email: StateFlow<String> = savedStateHandle.getStateFlow(KEY_EMAIL, "")
-    val password: StateFlow<String> = savedStateHandle.getStateFlow(KEY_PASSWORD, "")
-    val emailError: StateFlow<Boolean> = savedStateHandle.getStateFlow(KEY_EMAIL_ERROR, false)
-    val passwordError: StateFlow<Boolean> = savedStateHandle.getStateFlow(KEY_PASSWORD_ERROR, false)
+    private val _email: StateFlow<String> = savedStateHandle.getStateFlow(KEY_EMAIL, "")
+    val email: StateFlow<String> = _email
+
+    private val _password: StateFlow<String> = savedStateHandle.getStateFlow(KEY_PASSWORD, "")
+    val password: StateFlow<String> = _password
+
+    private val _emailError: StateFlow<Boolean> =
+        savedStateHandle.getStateFlow(KEY_EMAIL_ERROR, false)
+    val emailError: StateFlow<Boolean> = _emailError
+
+    private val _passwordError: StateFlow<Boolean> =
+        savedStateHandle.getStateFlow(KEY_PASSWORD_ERROR, false)
+    val passwordError: StateFlow<Boolean> = _passwordError
 
     fun onEmailChanged(newValue: String) {
         val cleaned = emailUseCase.saveEmail(newValue)
