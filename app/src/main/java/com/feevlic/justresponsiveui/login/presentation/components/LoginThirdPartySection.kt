@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.feevlic.justresponsiveui.R
-import com.feevlic.justresponsiveui.design_sytsem.JustAUiIconTextButton
+import com.feevlic.justresponsiveui.design_system.JustAUiIconTextButton
 
 @Composable
 fun LoginThirdPartySection(

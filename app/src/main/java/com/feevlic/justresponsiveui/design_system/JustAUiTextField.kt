@@ -1,4 +1,4 @@
-package com.feevlic.justresponsiveui.design_sytsem
+package com.feevlic.justresponsiveui.design_system
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

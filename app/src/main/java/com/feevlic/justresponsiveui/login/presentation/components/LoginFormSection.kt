@@ -10,9 +10,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.feevlic.justresponsiveui.design_sytsem.JustAUiButton
-import com.feevlic.justresponsiveui.design_sytsem.JustAUiLink
-import com.feevlic.justresponsiveui.design_sytsem.JustAUiTextField
+import com.feevlic.justresponsiveui.design_system.JustAUiButton
+import com.feevlic.justresponsiveui.design_system.JustAUiLink
+import com.feevlic.justresponsiveui.design_system.JustAUiTextField
 
 @Composable
 fun LoginFormSection(
