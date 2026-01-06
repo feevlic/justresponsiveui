@@ -1,4 +1,4 @@
-package com.feevlic.justresponsiveui.design_sytsem
+package com.feevlic.justresponsiveui.design_system
 
 import androidx.compose.foundation.clickable
 import androidx.compose.material3.MaterialTheme
