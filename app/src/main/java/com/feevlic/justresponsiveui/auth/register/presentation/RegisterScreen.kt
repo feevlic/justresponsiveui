@@ -22,17 +22,16 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.feevlic.justresponsiveui.auth.login.presentation.components.LoginThirdPartySection
 import com.feevlic.justresponsiveui.auth.register.presentation.components.RegisterFormSection
 import com.feevlic.justresponsiveui.auth.register.presentation.components.RegisterHeaderSection
@@ -41,13 +40,22 @@ import com.feevlic.justresponsiveui.util.DeviceConfiguration
 
 @Composable
 fun RegisterScreen(
-    modifier: Modifier = Modifier, sharedAuthViewModel: SharedAuthViewModel
+    modifier: Modifier = Modifier,
+    sharedAuthViewModel: SharedAuthViewModel,
+    viewModel: RegisterViewModel = hiltViewModel(),
 ) {
     val focusManager = LocalFocusManager.current
     val prefilledEmail by sharedAuthViewModel.email.collectAsState()
-    var nameText by remember { mutableStateOf("") }
-    var emailText by remember { mutableStateOf(prefilledEmail) }
-    var passwordText by remember { mutableStateOf("") }
+    val emailText by viewModel.email.collectAsState()
+    val passwordText by viewModel.password.collectAsState()
+    val emailError by viewModel.emailError.collectAsState()
+    val passwordError by viewModel.passwordError.collectAsState()
+
+    LaunchedEffect(prefilledEmail) {
+        if (prefilledEmail.isNotBlank()) {
+            viewModel.setEmail(prefilledEmail)
+        }
+    }
 
     val passwordErrorMessage =
         "Password must be at least 8 characters, include one uppercase letter and one digit."
@@ -85,16 +93,18 @@ fun RegisterScreen(
                 ) {
                     RegisterHeaderSection(modifier = Modifier.fillMaxWidth())
                     RegisterFormSection(
-                        nameText = nameText,
-                        onNameTextChange = { nameText = it },
+                        nameText = "",
+                        onNameTextChange = {},
                         emailText = emailText,
-                        onEmailTextChange = { emailText = it },
+                        onEmailTextChange = { viewModel.onEmailChanged(it) },
                         passwordText = passwordText,
-                        onPasswordTextChange = { passwordText = it },
+                        onPasswordTextChange = { viewModel.onPasswordChanged(it) },
                         modifier = Modifier.fillMaxWidth(),
+                        emailError = emailError,
                         emailErrorMessage = emailErrorMessage,
+                        passwordError = passwordError,
                         passwordErrorMessage = passwordErrorMessage,
-                        onSignupClick = { /* implement registration action here */ })
+                        onSignupClick = { viewModel.onSignupClicked() })
                     LoginThirdPartySection(
                         modifier = Modifier.fillMaxWidth(), buttonModifier = Modifier.fillMaxWidth()
                     )
@@ -116,16 +126,18 @@ fun RegisterScreen(
                         verticalArrangement = Arrangement.spacedBy(16.dp)
                     ) {
                         RegisterFormSection(
-                            nameText = nameText,
-                            onNameTextChange = { nameText = it },
+                            nameText = "",
+                            onNameTextChange = {},
                             emailText = emailText,
-                            onEmailTextChange = { emailText = it },
+                            onEmailTextChange = { viewModel.onEmailChanged(it) },
                             passwordText = passwordText,
-                            onPasswordTextChange = { passwordText = it },
+                            onPasswordTextChange = { viewModel.onPasswordChanged(it) },
                             modifier = Modifier.fillMaxWidth(),
+                            emailError = emailError,
                             emailErrorMessage = emailErrorMessage,
+                            passwordError = passwordError,
                             passwordErrorMessage = passwordErrorMessage,
-                            onSignupClick = { /* registration */ })
+                            onSignupClick = { viewModel.onSignupClicked() })
 
                         LoginThirdPartySection(
                             modifier = Modifier.fillMaxWidth(),
@@ -148,16 +160,18 @@ fun RegisterScreen(
                         alignment = Alignment.CenterHorizontally
                     )
                     RegisterFormSection(
-                        nameText = nameText,
-                        onNameTextChange = { nameText = it },
+                        nameText = "",
+                        onNameTextChange = {},
                         emailText = emailText,
-                        onEmailTextChange = { emailText = it },
+                        onEmailTextChange = { viewModel.onEmailChanged(it) },
                         passwordText = passwordText,
-                        onPasswordTextChange = { passwordText = it },
+                        onPasswordTextChange = { viewModel.onPasswordChanged(it) },
                         modifier = Modifier.widthIn(max = 540.dp),
+                        emailError = emailError,
                         emailErrorMessage = emailErrorMessage,
+                        passwordError = passwordError,
                         passwordErrorMessage = passwordErrorMessage,
-                        onSignupClick = { /* register */ })
+                        onSignupClick = { viewModel.onSignupClicked() })
                     LoginThirdPartySection(
                         modifier = Modifier.widthIn(max = 540.dp),
                         buttonModifier = Modifier.widthIn(480.dp)
