@@ -47,7 +47,3 @@ Build and run
 ```
 
 - Run from Android Studio for interactive debugging and Compose previews.
-
-License
-
-- See project root `LICENSE` for license terms.
