@@ -7,9 +7,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.feevlic.justresponsiveui.design_system.JustAUiButton
+import com.feevlic.justresponsiveui.design_system.JustAUiLink
 import com.feevlic.justresponsiveui.design_system.JustAUiTextField
 
 @Composable
@@ -26,6 +28,7 @@ fun RegisterFormSection(
     passwordError: Boolean = false,
     passwordErrorMessage: String? = null,
     onSignupClick: () -> Unit = {},
+    onNavigateToLogin: () -> Unit = {}
 ) {
     Column(modifier = modifier) {
         JustAUiTextField(
@@ -43,7 +46,7 @@ fun RegisterFormSection(
             text = nameText,
             onValueChange = onNameTextChange,
             label = "Your Name",
-            hint = "Max Mustermann",
+            hint = "Max",
             isInputSecret = false,
             modifier = Modifier.fillMaxWidth()
         )
@@ -64,6 +67,12 @@ fun RegisterFormSection(
             onClick = onSignupClick,
             modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        JustAUiLink(
+            text = "Already a member?",
+            onClick = { onNavigateToLogin() },
+            modifier = Modifier.align(Alignment.CenterHorizontally)
         )
     }
 }

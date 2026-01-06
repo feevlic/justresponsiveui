@@ -43,7 +43,9 @@ fun AuthNavigation(modifier: Modifier = Modifier, onLogin: () -> Unit) {
                     onRegister = { authBackStack.add(Route.Auth.Register) })
             }
             entry<Route.Auth.Register> {
-                RegisterScreen(sharedAuthViewModel = sharedAuthViewModel)
+                RegisterScreen(
+                    sharedAuthViewModel = sharedAuthViewModel,
+                    onLogin = { authBackStack.add(Route.Auth.Login) })
             }
         })
 }
