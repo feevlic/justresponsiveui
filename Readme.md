@@ -1,7 +1,10 @@
 # JustResponsiveUi
 
-**Minimal Android sample demonstrating responsive Jetpack Compose UI and cleanly separated
-authentication flows (Login / Register), with shared domain validation and dependency injection.**
+**About**
+
+JustResponsiveUi is a minimal Android app that demonstrates building adaptive Jetpack Compose UIs
+for phones and tablets (portrait and landscape). It includes separate Login and Register flows with
+shared domain validation, MVVM ViewModel + StateFlow, and Dagger Hilt dependency injection.
 
 ## Overview
 
