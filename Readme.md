@@ -1,14 +1,16 @@
 JustResponsiveUI
 
 <p align="center">
-  <a href="screenshots/LoginFlow_Video.mp4">
-    <img src="screenshots/LoginScreen_Portrait_Mobile.png" alt="Login portrait" width="280" style="margin-right:12px;"/>
-  </a>
-  <a href="screenshots/LoginFlow_Video.mp4">
-    <img src="screenshots/RegisterScreen_Landscape_Mobile.png" alt="Register landscape" width="280" style="margin-right:12px;"/>
-  </a>
-  <a href="screenshots/LoginFlow_Video.mp4">View demo video</a>
-</p>
+<table cellspacing="6" cellpadding="0" align="center"> 
+<tr> <td><a href="screenshots/LoginFlow_Video.mp4">
+<img src="screenshots/LoginScreen_Portrait_Mobile.png" alt="Login portrait" width="320" height="320" style="object-fit:cover;"/></a></td>
+<td><a href="screenshots/LoginFlow_Video.mp4"><img src="screenshots/RegisterScreen_Landscape_Mobile.png" alt="Register landscape" width="320" height="320" style="object-fit:cover;"/></a></td> </tr>
+<tr> <td><a href="screenshots/LoginFlow_Video.mp4">
+<img src="screenshots/LoginScreen_Landscape_Tablet.png" alt="Login landscape tablet" width="320" height="320" style="object-fit:cover;"/></a></td> 
+<td><a href="screenshots/LoginFlow_Video.mp4"><img src="screenshots/RegisterScreen_Portrait_Tablet.png" alt="Register portrait tablet" width="320" height="320" style="object-fit:cover;"/></a></td> </tr> 
+</table></p>
+
+
 Minimal Android sample demonstrating responsive Jetpack Compose UI and cleanly separated
 authentication flows (Login / Register), with shared domain validation and dependency injection.
 
