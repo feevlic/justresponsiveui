@@ -1,4 +1,4 @@
-package com.feevlic.justresponsiveui.login.presentation.components
+package com.feevlic.justresponsiveui.auth.login.presentation.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -25,7 +25,8 @@ fun LoginFormSection(
     emailErrorMessage: String? = null,
     passwordError: Boolean = false,
     passwordErrorMessage: String? = null,
-    onLoginClick: () -> Unit = {}
+    onLoginClick: () -> Unit = {},
+    onNavigateToRegister: (String) -> Unit = {}
 ) {
     Column(modifier = modifier) {
         JustAUiTextField(
@@ -59,7 +60,7 @@ fun LoginFormSection(
         Spacer(modifier = Modifier.height(16.dp))
         JustAUiLink(
             text = "Don't have an account?",
-            onClick = {},
+            onClick = { onNavigateToRegister(emailText) },
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
     }

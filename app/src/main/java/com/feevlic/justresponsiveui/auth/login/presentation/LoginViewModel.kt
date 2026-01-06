@@ -1,11 +1,11 @@
-package com.feevlic.justresponsiveui.login.presentation
+package com.feevlic.justresponsiveui.auth.login.presentation
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import com.feevlic.justresponsiveui.login.domain.usecase.SaveEmailUseCase
-import com.feevlic.justresponsiveui.login.domain.usecase.SavePasswordUseCase
-import com.feevlic.justresponsiveui.login.domain.usecase.ValidateEmailUseCase
-import com.feevlic.justresponsiveui.login.domain.usecase.ValidatePasswordUseCase
+import com.feevlic.justresponsiveui.auth.login.domain.usecase.SaveEmailUseCase
+import com.feevlic.justresponsiveui.auth.login.domain.usecase.SavePasswordUseCase
+import com.feevlic.justresponsiveui.auth.login.domain.usecase.ValidateEmailUseCase
+import com.feevlic.justresponsiveui.auth.login.domain.usecase.ValidatePasswordUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject

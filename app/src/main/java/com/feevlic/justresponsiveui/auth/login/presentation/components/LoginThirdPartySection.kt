@@ -1,4 +1,4 @@
-package com.feevlic.justresponsiveui.login.presentation.components
+package com.feevlic.justresponsiveui.auth.login.presentation.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

@@ -1,4 +1,4 @@
-package com.feevlic.justresponsiveui.login.domain.usecase
+package com.feevlic.justresponsiveui.auth.login.domain.usecase
 
 import javax.inject.Inject
 
