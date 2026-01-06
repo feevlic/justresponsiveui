@@ -6,10 +6,11 @@ import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.feevlic.justresponsiveui.auth.login.presentation.LoginScreen
+import com.feevlic.justresponsiveui.navigation.NavigationRoot
 import com.feevlic.justresponsiveui.ui.theme.JustresponsiveuiTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,7 +25,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background,
                     modifier = Modifier.fillMaxSize()
                 ) {
-                    LoginScreen()
+                    NavigationRoot(modifier = Modifier.padding())
                 }
 
             }
