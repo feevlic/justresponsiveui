@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.feevlic.justresponsiveui.login.presentation.LoginScreen
+import com.feevlic.justresponsiveui.auth.login.presentation.LoginScreen
 import com.feevlic.justresponsiveui.ui.theme.JustresponsiveuiTheme
 import dagger.hilt.android.AndroidEntryPoint
 

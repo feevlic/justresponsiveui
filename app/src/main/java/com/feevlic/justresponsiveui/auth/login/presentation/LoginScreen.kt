@@ -1,4 +1,4 @@
-package com.feevlic.justresponsiveui.login.presentation
+package com.feevlic.justresponsiveui.auth.login.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
@@ -31,9 +31,9 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import com.feevlic.justresponsiveui.login.presentation.components.LoginFormSection
-import com.feevlic.justresponsiveui.login.presentation.components.LoginHeaderSection
-import com.feevlic.justresponsiveui.login.presentation.components.LoginThirdPartySection
+import com.feevlic.justresponsiveui.auth.login.presentation.components.LoginFormSection
+import com.feevlic.justresponsiveui.auth.login.presentation.components.LoginHeaderSection
+import com.feevlic.justresponsiveui.auth.login.presentation.components.LoginThirdPartySection
 import com.feevlic.justresponsiveui.util.DeviceConfiguration
 
 @Composable
