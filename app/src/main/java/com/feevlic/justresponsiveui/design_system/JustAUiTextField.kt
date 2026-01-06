@@ -1,5 +1,10 @@
 package com.feevlic.justresponsiveui.design_system
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,6 +21,7 @@ import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -29,6 +35,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.feevlic.justresponsiveui.ui.theme.JustresponsiveuiTheme
 import com.feevlic.justresponsiveui.ui.theme.Shapes
+import kotlinx.coroutines.delay
 
 @Composable
 fun JustAUiTextField(
@@ -45,7 +52,20 @@ fun JustAUiTextField(
         mutableStateOf(false)
     }
 
-    Column(modifier = modifier) {
+    val shouldBeVisible = isError && !errorMessage.isNullOrEmpty()
+    var showError by remember { mutableStateOf(shouldBeVisible) }
+
+    LaunchedEffect(shouldBeVisible) {
+        if (shouldBeVisible) {
+            showError = false
+            delay(60)
+            showError = true
+        } else {
+            showError = false
+        }
+    }
+
+    Column(modifier = modifier.animateContentSize()) {
         Text(text = label, style = MaterialTheme.typography.bodyMedium)
         Spacer(modifier = modifier.height(6.dp))
         OutlinedTextField(
@@ -101,10 +121,14 @@ fun JustAUiTextField(
             isError = isError
         )
 
-        if (isError && !errorMessage.isNullOrEmpty()) {
+        AnimatedVisibility(
+            visible = showError,
+            enter = fadeIn(animationSpec = tween(durationMillis = 260, delayMillis = 0)),
+            exit = fadeOut(animationSpec = tween(durationMillis = 180))
+        ) {
             Spacer(modifier = Modifier.height(6.dp))
             Text(
-                text = errorMessage,
+                text = errorMessage ?: "",
                 color = MaterialTheme.colorScheme.error,
                 style = MaterialTheme.typography.bodySmall
             )
