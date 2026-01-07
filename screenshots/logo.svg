@@ -1,0 +1,39 @@
+<svg fill="none" height="40" viewBox="0 0 40 40" width="40" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient gradientUnits="userSpaceOnUse" id="strokeGrad" x1="4" x2="36" y1="4"
+            y2="36">
+            <stop stop-color="#6B57FF" />
+            <stop offset="0.55" stop-color="#3C99CC" />
+            <stop offset="1" stop-color="#3BCB7F" />
+        </linearGradient>
+
+        <linearGradient gradientUnits="userSpaceOnUse" id="bgGrad" x1="7" x2="33" y1="7" y2="33">
+            <stop stop-color="#6B57FF" stop-opacity="0.14" />
+            <stop offset="0.6" stop-color="#3C99CC" stop-opacity="0.10" />
+            <stop offset="1" stop-color="#3BCB7F" stop-opacity="0.12" />
+        </linearGradient>
+    </defs>
+
+    <!-- Container -->
+    <rect fill="url(#bgGrad)" height="32" rx="7" width="32" x="4" y="4" />
+    <rect height="32" rx="7" stroke="url(#strokeGrad)" stroke-width="2" width="32" x="4" y="4" />
+
+    <!-- Tablet -->
+    <rect fill="#6B57FF" fill-opacity="0.10" height="18" rx="3.2" width="18.5" x="9.5" y="11" />
+    <rect height="18" rx="3.2" stroke="#6B57FF" stroke-width="2" width="18.5" x="9.5" y="11" />
+
+    <!-- Tablet content lines -->
+    <line stroke="#3C99CC" stroke-linecap="round" stroke-width="2" x1="12.2" x2="25.3" y1="17"
+        y2="17" />
+    <line stroke="#3BCB7F" stroke-linecap="round" stroke-width="2" x1="12.2" x2="20.8" y1="22"
+        y2="22" />
+
+    <!-- Phone (overlapping) -->
+    <rect fill="#3C99CC" fill-opacity="0.10" height="14" rx="2.7" width="8.5" x="22" y="13" />
+    <rect height="14" rx="2.7" stroke="#3C99CC" stroke-width="2" width="8.5" x="22" y="13" />
+
+    <!-- Phone content -->
+    <line stroke="#3BCB7F" stroke-linecap="round" stroke-width="2" x1="24.1" x2="28.6" y1="17.2"
+        y2="17.2" />
+    <circle cx="26.25" cy="24.1" fill="#6B57FF" r="0.9" />
+</svg>

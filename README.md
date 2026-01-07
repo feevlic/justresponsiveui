@@ -1,6 +1,13 @@
 # JustResponsiveUi
 
-**About**
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+
+<html>
+  <h2 align="center">
+    <img src="screenshots/logo.svg" width="150"/>
+  </h2>
+</html>
 
 JustResponsiveUi is a minimal Android app that demonstrates building adaptive Jetpack Compose UIs
 for phones and tablets (portrait and landscape). It includes separate Login and Register flows with
